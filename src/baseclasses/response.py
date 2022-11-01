@@ -1,7 +1,3 @@
-from jsonschema import validate
-from src.enums.global_enums import GlobalErrorMessages
-
-
 class Response:
 
     def __init__(self, response):
@@ -16,11 +12,10 @@ class Response:
     def validate(self, schema):
         schema.parse_obj(self.response_json)
 
-# create a magic method/ модифицирует наш ответ при ошибке
+    # magic method/ модифицирует наш ответ при ошибке для пользователя
     def __str__(self):
         return \
             f'\nStatus code: {self.response_status} \n' \
             f'Request url: {self.response.url} \n' \
             f'Reason: {self.response.reason} \n' \
             f'Response body: {self.response_json}'
-

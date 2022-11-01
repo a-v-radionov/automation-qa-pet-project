@@ -7,14 +7,15 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 # локальная функция для отправки запроса
-def _get_data(api, name):
+def __get_data(api, name):
     response = get(api + name)
     return response
 
 
 @pytest.fixture
 def get_data():
-    return _get_data
+    return __get_data
+
 
 # scope="session"
 @pytest.fixture
@@ -24,4 +25,3 @@ def browser():
     driver.maximize_window()
     yield driver
     driver.quit()
-
