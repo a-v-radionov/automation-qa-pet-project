@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-# локальная функция для отправки запроса
+# the protected function for sending the request
 def __get_data(api, name):
     response = get(api + name)
     return response
@@ -18,8 +18,14 @@ def get_data():
 
 
 # scope="session"
-@pytest.fixture
-def browser():
+@pytest.fixture(scope='function')
+def driver():
+    """
+    - Download Chrome web driver.
+    - Open browser
+    - Close browser
+
+    """
     driver_service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=driver_service)
     driver.maximize_window()

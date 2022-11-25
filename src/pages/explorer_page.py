@@ -12,7 +12,7 @@ class Locators:
 
 class ExplorerPage(BasePage):
 
-    def fill_fields_and_submit(self):
+    def search_btc_address(self):
         element = self.element_is_visible(Locators.INPUT)
         element.send_keys(BTC_ADDRESS)
         element.send_keys(Keys.ENTER)

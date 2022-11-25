@@ -8,3 +8,4 @@ METHOD_ADDRESS_INFO = 'address'
 
 # WEB testing const
 WEB_URL: str = 'https://explorer.btc.com/'
+WEB_URL_SIBAC: str = 'https://sibac.info/arhive-article'
